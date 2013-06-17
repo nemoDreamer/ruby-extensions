@@ -1,10 +1,14 @@
-if !'string'.methods.include? :color
-	class String
-		def color (*args) self end
-		def bold ()       self end
+begin
+	# add color support to module.Testable if available
+	require_relative '../classes/class.String.rb'
+rescue LoadError
+	if !'string'.methods.include? :color
+		class String
+			def color (*args) self end
+			def bold ()       self end
+		end
 	end
 end
-
 
 module Testable
 

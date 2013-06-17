@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby -w
 
-require '../classes/class.String.rb'
 require '../modules/module.Testable.rb'
 
 class String

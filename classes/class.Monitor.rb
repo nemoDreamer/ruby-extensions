@@ -1,5 +1,5 @@
-require File.dirname(__FILE__) + '/class.Curl.rb'
-require File.dirname(__FILE__) + '/../modules/module.Testable.rb'
+require_relative 'class.Curl.rb'
+require_relative '../modules/module.Testable.rb'
 
 module Response
 	include Testable
