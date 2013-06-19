@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby -w
 
-require '../modules/module.Testable.rb'
+require_relative '../modules/module.Testable.rb'
 
 class String
 	include Testable
