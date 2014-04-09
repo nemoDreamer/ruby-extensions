@@ -20,7 +20,7 @@ class String
 	# set color
 	# default: foreground
 	def color (code, isBg = false)
-		code = String::to_color_code(code)
+		code = String::to_color_code(code.to_s)
 		prefix = isBg ? 4 : 3
 		"\e[#{prefix}#{code}m#{self}\e[#{prefix}9m"
 	end
