@@ -12,7 +12,7 @@ module Curses
     # --------------------------------------------------
     # INITIALIZE
     # --------------------------------------------------
-    def initialize items, options
+    def initialize items, options={}, &block
       @@defaults = {
         standout: Curses::A_STANDOUT,
         padding: [2, 1],
@@ -20,6 +20,8 @@ module Curses
 
       @items = (items.is_a? Array) ? items.to_hash : items
       @options = @@defaults.merge(options)
+
+      @block = block_given? ? block : false
 
       @current_item = 0
     end
@@ -67,7 +69,11 @@ module Curses
           line + @options[:padding][1] + 1,
           @options[:padding][0] + 1
         )
-        dialog << v
+        if @block != false
+          dialog << @block.call(v)
+        else
+          dialog << v
+        end
 
         line += 1
       end
