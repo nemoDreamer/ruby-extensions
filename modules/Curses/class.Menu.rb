@@ -19,7 +19,7 @@ module Curses
       }
 
       @items = (items.is_a? Array) ? items.to_hash : items
-      @options = @@defaults.merge options
+      @options = @@defaults.merge(options)
 
       @current_item = 0
     end
@@ -37,8 +37,8 @@ module Curses
       ) do |dialog|
 
         loop do
-          render dialog
-          break if interact dialog
+          render(dialog)
+          break if interact(dialog)
         end
 
       end
